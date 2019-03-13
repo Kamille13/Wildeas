@@ -1,8 +1,8 @@
 package com.example.wiideas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,21 +18,28 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        Intent intent = getIntent();
+        String firstNameText = intent.getStringExtra("firstName");
+        String lastNameText = intent.getStringExtra("lastName");
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent newActivity = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(newActivity);
             }
-        });
+            });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+
     }
 
     @Override
@@ -43,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.about_us) {
+            Intent aboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
+            startActivity(aboutUsActivity);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
