@@ -1,4 +1,4 @@
-package com.example.wiideas;
+/* package com.example.wiideas;
 
 import java.util.ArrayList;
 
@@ -40,4 +40,4 @@ public class User {
         return idea.indexOf(tittle);
 
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.example.wiideas;
+/*package com.example.wiideas;
 
 public class Idea {
 
@@ -29,7 +29,6 @@ public class Idea {
         this.content = content;
     }
 
-}
+}*/
 
 
-    /
