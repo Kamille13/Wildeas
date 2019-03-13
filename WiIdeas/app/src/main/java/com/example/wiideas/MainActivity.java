@@ -26,16 +26,17 @@ public class MainActivity extends AppCompatActivity {
         String firstNameText = receiveStartActivity.getStringExtra("firstName");
         String lastNameText = receiveStartActivity.getStringExtra("name");
 
+        //Initialization of idea and user
         Idea idea1 = new Idea("Tittle","Description");
-
         User user1 = new User(firstNameText,lastNameText, idea1);
-
         ArrayList<Idea> test = user1.getIdea();
 
-        Idea test1 = test.get(0);
+        //Display Hello User
+        TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
+        HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " +  "!");
 
-                TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
-        HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " + test1.getIdeaTittle() +  "!");
+        //Display  first list
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);;
