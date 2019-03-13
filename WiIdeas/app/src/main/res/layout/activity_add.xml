@@ -7,7 +7,7 @@
     tools:context=".AddActivity">
 
     <Button
-        android:id="@+id/buttonRemove"
+        android:id="@+id/buttonAdd"
         android:layout_width="174dp"
         android:layout_height="73dp"
         android:layout_marginTop="8dp"
@@ -17,10 +17,10 @@
         android:text="@string/Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editTextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="345dp"
         android:layout_marginStart="16dp"
@@ -52,5 +52,5 @@
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 </android.support.constraint.ConstraintLayout>
