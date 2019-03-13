@@ -21,16 +21,19 @@ public class StartActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
+
+                //Collect User identifiant
                 EditText firstName = findViewById(R.id.editTextFirstName);
                 String firstNameText = firstName.getText().toString();
 
                 EditText lastName = findViewById(R.id.editTextLastName);
                 String lastNameText = lastName.getText().toString();
 
-                Intent testActivity = new Intent(StartActivity.this, MainActivity.class);
-                testActivity.putExtra("firstName",firstNameText);
-                testActivity.putExtra("lastName",lastNameText);
-                startActivity(testActivity);
+
+                Intent StartActivity = new Intent(StartActivity.this, MainActivity.class);
+                StartActivity.putExtra("firstName",firstNameText);
+                StartActivity.putExtra("name",lastNameText);
+                startActivity(StartActivity);
 
             }
         });

@@ -8,6 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +22,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        Intent receiveStartActivity = getIntent();
+        String firstNameText = receiveStartActivity.getStringExtra("firstName");
+        String lastNameText = receiveStartActivity.getStringExtra("name");
+
+        Idea idea1 = new Idea("Tittle","Description");
+
+        User user1 = new User(firstNameText,lastNameText, idea1);
+
+        ArrayList<Idea> test = user1.getIdea();
+
+        Idea test1 = test.get(0);
+
+                TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
+        HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " + test1.getIdeaTittle() +  "!");
+
+
+        FloatingActionButton fab = findViewById(R.id.fab);;
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
