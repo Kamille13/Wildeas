@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WiIdeas</string>
     <string name="action_settings">Settings</string>
+    <string name="Remove">remove</string>
+    <string name="Send">Send</string>
+    <string name="Add">Add</string>
 </resources>
