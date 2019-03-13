@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +32,26 @@ public class MainActivity extends AppCompatActivity {
         //Initialization of idea and user
         Idea idea1 = new Idea("Tittle","Description");
         User user1 = new User(firstNameText,lastNameText, idea1);
-        ArrayList<Idea> test = user1.getIdea();
+        //ArrayList<Idea> test = user1.getIdea();
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
         HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " +  "!");
 
         //Display list
+        final ListView listView = findViewById(R.id.listView);
+        String[] tableTest = new String[] {"Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver","Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver"};
+        ArrayAdapter<String> ideasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tableTest );
+        listView.setAdapter(ideasAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String value = (String) listView.getItemAtPosition(position);
+                Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
+                startActivity(goDescriptionActivity);
+            }
+        });
+
 
 
 
