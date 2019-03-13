@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
         HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " +  "!");
 
-        //Display  first list
+        //Display list
 
 
 
