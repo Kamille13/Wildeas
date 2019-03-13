@@ -1,27 +1,29 @@
-/*package com.example.wiideas;
+package com.example.wiideas;
 
 public class Idea {
 
     String tittle;
     String content;
 
+
     //Ideas Constructor
-    public Ideas(String tittle, String content) {
+    public Idea(String tittle, String content) {
         this.tittle = tittle;
         this.content = content;
     }
 
+
     //Ideas getter and setters
 
-    public String getIdeaTittle(){
+    public String getIdeaTittle() {
         return this.tittle;
     }
 
-    public String getIdeaContent(){
+    public String getIdeaContent() {
         return this.content;
     }
-
-    public void isIdeaTittle(){
+}
+    /*public void isIdeaTittle(){
         this.tittle = tittle;
     }
 
