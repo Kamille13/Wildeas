@@ -2,18 +2,24 @@ package com.example.wiideas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +28,41 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Receive variable user value
         Intent receiveStartActivity = getIntent();
-        String firstNameText = receiveStartActivity.getStringExtra("firstName");
-        String lastNameText = receiveStartActivity.getStringExtra("name");
+        final User userMaintActivity = receiveStartActivity.getParcelableExtra("userGoStartActivity");
 
-        Idea idea1 = new Idea("Tittle","Description");
+        //Display Hello User
+        TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
+        HelloUser.setText("Hello " + userMaintActivity.getFirstname() + " " + userMaintActivity.getName() + " " +  "!");
 
-        User user1 = new User(firstNameText,lastNameText, idea1);
+        //Fill the list (table)
+        String[] listUserIdea = new String[userMaintActivity.getIdea().size()];
+        for (int index=0; index < userMaintActivity.getIdea().size(); index++){
+            listUserIdea[index] = userMaintActivity.getIdea().get(index).getIdeaTittle();
+        }
 
-        ArrayList<Idea> test = user1.getIdea();
+        /*String[] listUserIdea = new String[]{"lolo","fre"};*/
+        //Display list
+        final ListView listView = findViewById(R.id.listView);
 
-        Idea test1 = test.get(0);
+        ArrayAdapter<String> ideasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUserIdea);
+        listView.setAdapter(ideasAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String indexMainActivity = (String) listView.getItemAtPosition(position);
+                Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
+                goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
+                goDescriptionActivity.putExtra("indexGoDescriptionActivity", indexMainActivity);
+                startActivity(goDescriptionActivity);
+            }
+        });
 
-                TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
-        HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " + test1.getIdeaTittle() +  "!");
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);;
+
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

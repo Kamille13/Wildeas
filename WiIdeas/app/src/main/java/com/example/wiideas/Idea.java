@@ -1,6 +1,9 @@
 package com.example.wiideas;
 
-public class Idea {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Idea implements Parcelable {
 
     String tittle;
     String content;
@@ -15,6 +18,23 @@ public class Idea {
 
     //Ideas getter and setters
 
+    protected Idea(Parcel in) {
+        tittle = in.readString();
+        content = in.readString();
+    }
+
+    public static final Creator<Idea> CREATOR = new Creator<Idea>() {
+        @Override
+        public Idea createFromParcel(Parcel in) {
+            return new Idea(in);
+        }
+
+        @Override
+        public Idea[] newArray(int size) {
+            return new Idea[size];
+        }
+    };
+
     public String getIdeaTittle() {
         return this.tittle;
     }
@@ -22,15 +42,17 @@ public class Idea {
     public String getIdeaContent() {
         return this.content;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(tittle);
+        dest.writeString(content);
+    }
 }
-    /*public void isIdeaTittle(){
-        this.tittle = tittle;
-    }
-
-    public void isIdeaContent(){
-        this.content = content;
-    }
-
-}*/
 
 

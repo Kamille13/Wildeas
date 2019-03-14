@@ -1,5 +1,6 @@
 package com.example.wiideas;
 
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -29,11 +30,14 @@ public class StartActivity extends AppCompatActivity {
                 EditText lastName = findViewById(R.id.editTextLastName);
                 String lastNameText = lastName.getText().toString();
 
+                //Initialization of idea and user
+                Idea ideaStartActivity = new Idea("Tittle","Description");
+                User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
 
-                Intent StartActivity = new Intent(StartActivity.this, MainActivity.class);
-                StartActivity.putExtra("firstName",firstNameText);
-                StartActivity.putExtra("name",lastNameText);
-                startActivity(StartActivity);
+
+                Intent goStartActivity = new Intent(StartActivity.this, MainActivity.class);
+                goStartActivity.putExtra("userGoStartActivity", (Parcelable) userStarActivity);
+                startActivity(goStartActivity);
 
             }
         });
