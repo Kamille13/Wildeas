@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             listUserIdea[index] = userMaintActivity.getIdea().get(index).getIdeaTittle();
         }
 
-        /*String[] listUserIdea = new String[]{"lolo","fre"};*/
         //Display list
         final ListView listView = findViewById(R.id.listView);
 
@@ -51,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String indexMainActivity = (String) listView.getItemAtPosition(position);
+                String index = Integer.toString(position);
                 Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
                 goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
-                goDescriptionActivity.putExtra("indexGoDescriptionActivity", indexMainActivity);
+                goDescriptionActivity.putExtra("indexGoDescriptionActivity", index);
                 startActivity(goDescriptionActivity);
             }
         });
