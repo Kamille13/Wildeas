@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Receive variable user value
         Intent receiveStartActivity = getIntent();
-        final User userMaintActivity = receiveStartActivity.getParcelableExtra("userGoStartActivity");
+        final User userMaintActivity = receiveStartActivity.getParcelableExtra("toMainActivity");
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent newActivity = new Intent(MainActivity.this, AddActivity.class);
-                startActivity(newActivity);
+                Intent goAddActivity = new Intent(MainActivity.this, AddActivity.class);
+                goAddActivity.putExtra("userGoAddActivity", (Parcelable) userMaintActivity);
+                startActivity(goAddActivity);
             }
             });
     }

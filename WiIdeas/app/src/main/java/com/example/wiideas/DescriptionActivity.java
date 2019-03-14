@@ -1,8 +1,12 @@
 package com.example.wiideas;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DescriptionActivity extends AppCompatActivity {
@@ -16,8 +20,7 @@ public class DescriptionActivity extends AppCompatActivity {
         Intent receiveMainActivity = getIntent();
         final User userDescriptiontActivity = receiveMainActivity.getParcelableExtra("userGoDescriptionActivity");
         final String indexDescriptionActivity = receiveMainActivity.getStringExtra("indexGoDescriptionActivity");
-        int index = Integer.parseInt(indexDescriptionActivity);
-        index =Integer.parseInt(indexDescriptionActivity);
+        final int index =Integer.parseInt(indexDescriptionActivity);
 
 
         //display ideas
@@ -28,6 +31,24 @@ public class DescriptionActivity extends AppCompatActivity {
 
 
         //remove ideas
+
+        final Button button = findViewById(R.id.buttonRemove);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v){
+
+               userDescriptiontActivity.getIdea().remove(index);
+
+               Intent goMainActivity = new Intent(DescriptionActivity.this, MainActivity.class);
+               goMainActivity.putExtra("toMainActivity", (Parcelable) userDescriptiontActivity);
+               startActivity(goMainActivity);
+
+            }
+        });
+
+
+
 
     }
 
