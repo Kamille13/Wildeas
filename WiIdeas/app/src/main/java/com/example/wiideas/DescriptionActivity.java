@@ -12,21 +12,26 @@ public class DescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
 
+        //receive ideas
         Intent receiveMainActivity = getIntent();
         final User userDescriptiontActivity = receiveMainActivity.getParcelableExtra("userGoDescriptionActivity");
         final String indexDescriptionActivity = receiveMainActivity.getStringExtra("indexGoDescriptionActivity");
         int index = Integer.parseInt(indexDescriptionActivity);
-
         index =Integer.parseInt(indexDescriptionActivity);
 
+
+        //display ideas
         TextView tittle = (TextView) findViewById(R.id.textView);
         TextView description = (TextView) findViewById(R.id.textView2);
-
         description.setText(userDescriptiontActivity.getIdea().get(index).getIdeaTittle());
         tittle.setText(userDescriptiontActivity.getIdea().get(index).getIdeaContent());
 
 
+        //remove ideas
+
     }
+
+
 
 }
 
