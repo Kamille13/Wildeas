@@ -2,6 +2,7 @@ package com.example.wiideas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,31 +28,33 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        // Receive variable user value
         Intent receiveStartActivity = getIntent();
-        User userStartActivity = receiveStartActivity.getParcelableExtra("user");
-
-
-        //ArrayList<Idea> test = user1.getIdea();
+        final User userMaintActivity = receiveStartActivity.getParcelableExtra("userGoStartActivity");
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
-        HelloUser.setText("Hello " + userStartActivity.getFirstname() + " " + userStartActivity.getName() + " " +  "!");
+        HelloUser.setText("Hello " + userMaintActivity.getFirstname() + " " + userMaintActivity.getName() + " " +  "!");
 
         //Fill the list (table)
-        String[] tableTest = new String[] {"Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver","Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver"};
+        String[] listUserIdea = new String[userMaintActivity.getIdea().size()];
+        for (int index=0; index < userMaintActivity.getIdea().size(); index++){
+            listUserIdea[index] = userMaintActivity.getIdea().get(index).getIdeaTittle();
+        }
 
-
+        /*String[] listUserIdea = new String[]{"lolo","fre"};*/
         //Display list
         final ListView listView = findViewById(R.id.listView);
 
-        ArrayAdapter<String> ideasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tableTest );
+        ArrayAdapter<String> ideasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUserIdea);
         listView.setAdapter(ideasAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String value = (String) listView.getItemAtPosition(position);
+                String indexMainActivity = (String) listView.getItemAtPosition(position);
                 Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
+                goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
+                goDescriptionActivity.putExtra("indexGoDescriptionActivity", indexMainActivity);
                 startActivity(goDescriptionActivity);
             }
         });

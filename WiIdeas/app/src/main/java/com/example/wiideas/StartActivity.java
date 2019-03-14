@@ -35,9 +35,9 @@ public class StartActivity extends AppCompatActivity {
                 User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
 
 
-                Intent StartActivity = new Intent(StartActivity.this, MainActivity.class);
-                StartActivity.putExtra("user", (Parcelable) userStarActivity);
-                startActivity(StartActivity);
+                Intent goStartActivity = new Intent(StartActivity.this, MainActivity.class);
+                goStartActivity.putExtra("userGoStartActivity", (Parcelable) userStarActivity);
+                startActivity(goStartActivity);
 
             }
         });
