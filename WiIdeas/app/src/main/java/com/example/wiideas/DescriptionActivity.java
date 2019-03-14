@@ -11,3 +11,4 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
     }
 }
+
