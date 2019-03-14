@@ -29,21 +29,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent receiveStartActivity = getIntent();
-        String firstNameText = receiveStartActivity.getStringExtra("firstName");
-        String lastNameText = receiveStartActivity.getStringExtra("name");
+        User userStartActivity = receiveStartActivity.getParcelableExtra("user");
 
-        //Initialization of idea and user
-        Idea idea1 = new Idea("Tittle","Description");
-        User user1 = new User(firstNameText,lastNameText, idea1);
+
         //ArrayList<Idea> test = user1.getIdea();
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
-        HelloUser.setText("Hello " + user1.getUserFirstName() + " " + user1.getUserName() + " " +  "!");
+        HelloUser.setText("Hello " + userStartActivity.getFirstname() + " " + userStartActivity.getName() + " " +  "!");
+
+        //Fill the list (table)
+        String[] tableTest = new String[] {"Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver","Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver"};
+
 
         //Display list
         final ListView listView = findViewById(R.id.listView);
-        String[] tableTest = new String[] {"Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver","Rouge","Rouge","Ver","Rouge","Rouge", "Ver","Rouge", "Rouge","Ver"};
+
         ArrayAdapter<String> ideasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tableTest );
         listView.setAdapter(ideasAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

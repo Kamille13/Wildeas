@@ -1,12 +1,15 @@
 package com.example.wiideas;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class User {
+public class User extends ArrayList<Idea>  implements Parcelable {
 
-    String firstname;
-    String name;
-    ArrayList<Idea> idea = new ArrayList<>();
+    private String firstname;
+    private String name;
+    private ArrayList<Idea> idea = new ArrayList<>();
 
 
     //User Contructor
@@ -16,34 +19,58 @@ public class User {
         this.idea.add(idea);
     }
 
-    //User getter and setters
-    public String getUserFirstName() {
-        return this.firstname;
+
+    protected User(Parcel in) {
+        firstname = in.readString();
+        name = in.readString();
+        idea = in.createTypedArrayList(Idea.CREATOR);
     }
 
-    public String getUserName() {
-        return this.name;
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    public String getFirstname() {
+        return firstname;
     }
 
-    public ArrayList<Idea> getIdea(){
-
-        return this.idea;
-
+    public String getName() {
+        return name;
     }
-}
-    /*public void isUserFirstName(){
+
+    public ArrayList<Idea> getIdea() {
+        return idea;
+    }
+
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public void isUsertName(){
-        this.firstname = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    //Search an idea into the list
-
-    public int seachIdeas(String tittle, ArrayList<Idea> idea) {
-
-        return idea.indexOf(tittle);
-
+    public void setIdea(ArrayList<Idea> idea) {
+        this.idea = idea;
     }
-}*/
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(firstname);
+        dest.writeString(name);
+        dest.writeTypedList(idea);
+    }
+}
