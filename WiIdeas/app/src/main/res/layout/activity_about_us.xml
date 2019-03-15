@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutUsActivity">
+    tools:context=".AboutUsActivity"
+    android:background="@drawable/imagefont">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -16,7 +17,7 @@
         android:contentDescription="@string/picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        android:background="@drawable/imageview" />
 
     <TextView
         android:id="@+id/textViewAboutUs"
@@ -25,7 +26,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="@string/descriptionAboutUs"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"
+        android:text="@string/TextViewAboutUs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,6 +43,8 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/email"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +60,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"
         android:inputType="textMultiLine"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +77,10 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="32dp"
         android:text="@string/Send"
+        android:background="#EDB363"
+        android:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextComment" />
+
 </android.support.constraint.ConstraintLayout>
