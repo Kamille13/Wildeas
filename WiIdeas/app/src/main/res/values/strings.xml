@@ -7,7 +7,6 @@
     <string name="welcomeToWildeas">WELCOME TO WILDEAS</string>
     <string name="enterName">Name</string>
     <string name="enter">Go</string>
-    <string name="HelloR.id.EditText">Hello \"Name\" !</string>
     <string name="title">Title :</string>
     <string name="description">Description</string>
     <string name="picture">Image Descriptive</string>
@@ -15,5 +14,8 @@
     <string name="email">e-mail</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
+    <string name="add_activity_title">Add an Idea</string>
+    <string name="about_us_title">About Us</string>
+    <string name="idea_description_title">Idea Description</string>
     <string name="TextViewAboutUs">Nous sommes a votre disposition pour toutes vos demandes d\'informations ou autre...</string>
 </resources>

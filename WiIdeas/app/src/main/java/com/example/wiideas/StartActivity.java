@@ -45,6 +45,9 @@ public class StartActivity extends AppCompatActivity {
                 fromStartActivity.putExtra("toMainActivity", (Parcelable) userStarActivity);
                 startActivity(fromStartActivity);
 
+
+
+
             }
         });
 

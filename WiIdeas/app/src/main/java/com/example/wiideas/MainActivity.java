@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    User userMaintActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         // Receive variable user value
         Intent receiveStartActivity = getIntent();
-        final User userMaintActivity = receiveStartActivity.getParcelableExtra("toMainActivity");
+        userMaintActivity = receiveStartActivity.getParcelableExtra("toMainActivity");
+
+
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
@@ -88,12 +92,17 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.about_us) {
-            Intent aboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
-            startActivity(aboutUsActivity);
+
+            Intent goAboutUsActivity = new Intent(MainActivity.this, AboutUsActivity.class);
+            goAboutUsActivity.putExtra("userGoAboutUsActivity", (Parcelable) userMaintActivity);
+            startActivity(goAboutUsActivity);
             return true;
         }
 
