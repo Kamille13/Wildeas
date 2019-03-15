@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DescriptionActivity">
+    tools:context=".DescriptionActivity"
+    android:background="@drawable/imagefont">
 
     <Button
         android:id="@+id/buttonRemove"
@@ -14,6 +15,8 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
         android:text="@string/Remove"
+        android:background="#EDB363"
+        android:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -24,7 +27,9 @@
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -34,6 +39,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"/>
 
 </android.support.constraint.ConstraintLayout>

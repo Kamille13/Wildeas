@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity">
+    tools:context=".AddActivity"
+    android:background="@drawable/imagefont">
 
     <Button
         android:id="@+id/buttonAdd"
@@ -15,6 +16,8 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
         android:text="@string/Add"
+        android:background="#EDB363"
+        android:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
@@ -30,6 +33,8 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/title"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"
         android:inputType="textPersonName"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +52,8 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/description"
+        android:background="#AFE9FF"
+        android:fontFamily="casual"
         android:inputType="textMultiLine"
         android:selectAllOnFocus="true"
         android:singleLine="false"
