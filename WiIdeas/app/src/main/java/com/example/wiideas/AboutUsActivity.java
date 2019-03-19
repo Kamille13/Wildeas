@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class AboutUsActivity extends AppCompatActivity {
 
@@ -31,6 +32,23 @@ public class AboutUsActivity extends AppCompatActivity {
                 Intent goMainActivity = new Intent(AboutUsActivity.this, MainActivity.class);
                 goMainActivity.putExtra("toMainActivity", (Parcelable) muUserAddActivity);
                 startActivity(goMainActivity);
+            }
+        });
+        final Button button = findViewById(R.id.buttonSend);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v){
+
+                String aEmailList[] = { "user@fakehost.com" };
+                String aEmailCCList[] = {findViewById(R.id.editTextComment).toString()};
+
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, aEmailCCList);
+                startActivity(emailIntent);
+
             }
         });
     }
