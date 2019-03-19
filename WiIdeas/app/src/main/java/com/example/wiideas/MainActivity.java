@@ -1,6 +1,7 @@
 package com.example.wiideas;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
@@ -40,8 +41,26 @@ public class MainActivity extends AppCompatActivity {
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
         HelloUser.setText("Hello " + userMaintActivity.getFirstname() + " " + userMaintActivity.getName() + " " +  "!");
 
+
+        final ListView listView = findViewById(R.id.listView);
+        IdeasAdapter ideasAdapter = new IdeasAdapter(MainActivity.this, userMaintActivity.getIdea());
+        listView.setAdapter(ideasAdapter);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String index = Integer.toString(position);
+                Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
+
+                goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
+                goDescriptionActivity.putExtra("indexGoDescriptionActivity", index);
+                startActivity(goDescriptionActivity);
+            }
+        });
+
         //Fill the list (table)
-        String[] listUserIdea = new String[userMaintActivity.getIdea().size()];
+        /*String[] listUserIdea = new String[userMaintActivity.getIdea().size()];
         for (int index=0; index < userMaintActivity.getIdea().size(); index++){
             listUserIdea[index] = userMaintActivity.getIdea().get(index).getIdeaTittle();
         }
@@ -60,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 goDescriptionActivity.putExtra("indexGoDescriptionActivity", index);
                 startActivity(goDescriptionActivity);
             }
-        });
+        });*/
 
 
 
