@@ -1,6 +1,7 @@
 package com.example.wiideas;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
@@ -45,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
         IdeasAdapter ideasAdapter = new IdeasAdapter(MainActivity.this, userMaintActivity.getIdea());
         listView.setAdapter(ideasAdapter);
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String index = Integer.toString(position);
                 Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
+
                 goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
                 goDescriptionActivity.putExtra("indexGoDescriptionActivity", index);
                 startActivity(goDescriptionActivity);
