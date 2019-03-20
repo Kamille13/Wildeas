@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
@@ -20,8 +22,6 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
-
 
         final Button button = findViewById(R.id.buttonGo);
         button.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +45,7 @@ public class StartActivity extends AppCompatActivity {
                 fromStartActivity.putExtra("toMainActivity", (Parcelable) userStarActivity);
                 startActivity(fromStartActivity);
 
-
-
-
             }
         });
-
     }
 }
