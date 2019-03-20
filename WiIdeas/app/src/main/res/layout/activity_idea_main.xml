@@ -12,16 +12,24 @@
         android:layout_width="0dp"
         android:layout_height="39dp"
         android:text="TextView"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/ListFont"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="TextView"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        style="@style/ListFont"/>
 </android.support.constraint.ConstraintLayout>
