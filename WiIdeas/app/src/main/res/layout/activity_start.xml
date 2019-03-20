@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".StartActivity"
+    android:background="@drawable/imagefont">
+
+
+
 
     <TextView
         android:id="@+id/textViewWelcome"
@@ -15,8 +19,12 @@
         android:layout_marginTop="184dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="@string/welcomeToWildeas"
+        android:background="#00BBFF"
+        android:fontFamily="cursive"
         android:gravity="center"
+        android:text="@string/welcomeToWildeas"
+        android:textColor="#4F4043"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +41,8 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/firstName"
+        android:fontFamily="casual"
+        android:background="#AFE9FF"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -47,6 +57,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/enter"
+        android:fontFamily="casual"
+        android:background="#FFD460"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFirstName" />
 
@@ -61,8 +73,12 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/lastName"
+        android:fontFamily="casual"
+        android:background="#AFE9FF"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFirstName" />
+
+
 </android.support.constraint.ConstraintLayout>
