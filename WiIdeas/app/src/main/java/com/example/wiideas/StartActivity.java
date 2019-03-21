@@ -20,6 +20,29 @@ import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
 
+    public void showAlertDialog (View v){
+        // setup the alert builder
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Important message de Gandalf");
+        alert.setMessage("Es-tu sûr de vouloir continuer sur ce chemin pauvre fou ? ");
+        // add a button
+        alert.setPositiveButton("Accepter", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(StartActivity.this, "A tes risques et périls !", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // create and show the alert dialog
+        alert.setNegativeButton("Refuser", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(StartActivity.this, "T'as bien raison, ce n'est pas une app pour les mauviettes !", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -48,9 +71,12 @@ public class StartActivity extends AppCompatActivity {
                         EditText lastName = findViewById(R.id.editTextLastName);
                         String lastNameText = lastName.getText().toString();
 
-                        //Initialization of idea and user
-                        Idea ideaStartActivity = new Idea("Tittle","Description");
-                        User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
+
+                Uri uri = Uri.parse("android.resource://com.example.wiideas/drawable/enstein");
+
+                //Initialization of idea and user
+                Idea ideaStartActivity = new Idea("Tittle","Description",uri.toString());
+                User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
 
                         Intent fromStartActivity = new Intent(StartActivity.this, MainActivity.class);
                         fromStartActivity.putExtra("toMainActivity", (Parcelable) userStarActivity);

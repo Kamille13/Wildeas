@@ -1,8 +1,11 @@
 package com.example.wiideas;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import static android.os.Build.VERSION_CODES.KITKAT;
@@ -19,6 +24,9 @@ import static android.os.Build.VERSION_CODES.KITKAT;
 public class AddActivity extends AppCompatActivity {
 
     User muUserAddActivity;
+
+    final int PICK_IMAGE_REQUEST = 1;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,12 @@ public class AddActivity extends AppCompatActivity {
 
 
         final Button Add = findViewById(R.id.buttonAdd);
+        final Button Image = findViewById((R.id.buttonAdd2));
+
+
+
+
+        // Add an Idea
         Add.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -56,7 +70,7 @@ public class AddActivity extends AppCompatActivity {
                 String TitleText = Title.getText().toString();
                 String DescriptionText = Description.getText().toString();
 
-                Idea newIdea = new Idea(TitleText,DescriptionText);
+                Idea newIdea = new Idea(TitleText,DescriptionText,uri.toString());
                 muUserAddActivity.getIdea().add(newIdea);
 
                 Intent goMainActivity = new Intent(AddActivity.this, MainActivity.class);
@@ -64,6 +78,44 @@ public class AddActivity extends AppCompatActivity {
                 startActivity(goMainActivity);
             }
         });
+
+
+        //Add an image
+        Image.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v){
+
+                Intent intent = new Intent();
+                // Show only images, no videos or anything else
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                // Always show the chooser (if there are multiple options available)
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+
+            }
+        });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                // Log.d(TAG, String.valueOf(bitmap));
+
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                imageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

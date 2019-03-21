@@ -58,30 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Fill the list (table)
-        /*String[] listUserIdea = new String[userMaintActivity.getIdea().size()];
-        for (int index=0; index < userMaintActivity.getIdea().size(); index++){
-            listUserIdea[index] = userMaintActivity.getIdea().get(index).getIdeaTittle();
-        }
-
-        //Display list
-        final ListView listView = findViewById(R.id.listView);
-
-        ArrayAdapter<String> ideasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listUserIdea);
-        listView.setAdapter(ideasAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String index = Integer.toString(position);
-                Intent goDescriptionActivity = new Intent(MainActivity.this, DescriptionActivity.class);
-                goDescriptionActivity.putExtra("userGoDescriptionActivity", (Parcelable) userMaintActivity);
-                goDescriptionActivity.putExtra("indexGoDescriptionActivity", index);
-                startActivity(goDescriptionActivity);
-            }
-        });*/
-
-
-
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
