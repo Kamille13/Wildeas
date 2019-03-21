@@ -24,7 +24,9 @@ import static android.os.Build.VERSION_CODES.KITKAT;
 public class AddActivity extends AppCompatActivity {
 
     User muUserAddActivity;
+
     final int PICK_IMAGE_REQUEST = 1;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class AddActivity extends AppCompatActivity {
                 String TitleText = Title.getText().toString();
                 String DescriptionText = Description.getText().toString();
 
-                Idea newIdea = new Idea(TitleText,DescriptionText);
+                Idea newIdea = new Idea(TitleText,DescriptionText,uri.toString());
                 muUserAddActivity.getIdea().add(newIdea);
 
                 Intent goMainActivity = new Intent(AddActivity.this, MainActivity.class);
@@ -91,14 +93,10 @@ public class AddActivity extends AppCompatActivity {
                 // Always show the chooser (if there are multiple options available)
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
 
-
-
             }
         });
-
-
-
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -106,7 +104,7 @@ public class AddActivity extends AppCompatActivity {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
-            Uri uri = data.getData();
+            uri = data.getData();
 
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);

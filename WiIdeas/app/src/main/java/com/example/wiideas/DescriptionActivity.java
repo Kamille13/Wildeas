@@ -30,8 +30,8 @@ public class DescriptionActivity extends AppCompatActivity {
         //display ideas
         TextView tittle = (TextView) findViewById(R.id.textView);
         TextView description = (TextView) findViewById(R.id.textView2);
-        description.setText(userDescriptiontActivity.getIdea().get(index).getIdeaTittle());
-        tittle.setText(userDescriptiontActivity.getIdea().get(index).getIdeaContent());
+        description.setText(userDescriptiontActivity.getIdea().get(index).getTittle());
+        tittle.setText(userDescriptiontActivity.getIdea().get(index).getContent());
 
 
         //remove ideas

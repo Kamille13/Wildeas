@@ -2,6 +2,7 @@ package com.example.wiideas;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Parcelable;
 import android.support.annotation.RequiresApi;
@@ -63,17 +64,17 @@ public class StartActivity extends AppCompatActivity {
                 EditText lastName = findViewById(R.id.editTextLastName);
                 String lastNameText = lastName.getText().toString();
 
+
+                Uri uri = Uri.parse("android.resource://com.example.wiideas/drawable/enstein");
+
                 //Initialization of idea and user
-                Idea ideaStartActivity = new Idea("Tittle","Description");
+                Idea ideaStartActivity = new Idea("Tittle","Description",uri.toString());
                 User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
 
 
                 Intent fromStartActivity = new Intent(StartActivity.this, MainActivity.class);
                 fromStartActivity.putExtra("toMainActivity", (Parcelable) userStarActivity);
                 startActivity(fromStartActivity);
-
-
-
 
             }
         });
