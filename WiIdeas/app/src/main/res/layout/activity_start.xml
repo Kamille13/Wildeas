@@ -22,7 +22,6 @@
         android:fontFamily="casual"
         android:hint="@string/firstName"
         android:inputType="textPersonName"
-        android:onClick="showAlertDialog"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +41,7 @@
         android:background="#00BBFF"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:onClick="showAlertDialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFirstName"
         />
