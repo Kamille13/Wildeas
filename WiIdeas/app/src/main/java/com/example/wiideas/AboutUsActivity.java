@@ -1,6 +1,7 @@
 package com.example.wiideas;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class AboutUsActivity extends AppCompatActivity {
 
-
+    EditText mMessage;
+    EditText mSubject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +39,25 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(goMainActivity);
             }
         });
+
+        mMessage = findViewById(R.id.etMessage);
+        mSubject = findViewById(R.id.etSubject);
+
         final Button button = findViewById(R.id.buttonSend);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v){
 
-                String aEmailList[] = { "user@fakehost.com" };
-                String aEmailCCList[] = {findViewById(R.id.editTextComment).toString()};
+                String aEmailList = ("user@fakehost.com");
+                String message = mMessage.getText().toString();
+                String subject = mSubject.getText().toString();
 
-                Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                emailIntent.setType("text/plain");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, aEmailCCList);
+
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO,  Uri.parse("mailto:snx.dubois@gmail.com"));
+                //emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 startActivity(emailIntent);
 
             }
