@@ -40,7 +40,7 @@ public class StartActivity extends AppCompatActivity {
                 alert.setPositiveButton("Accepter", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(StartActivity.this, "A tes risques et périls !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StartActivity.this, "A tes risques et périls !", Toast.LENGTH_LONG).show();
 
                         EditText firstName = findViewById(R.id.editTextFirstName);
                         String firstNameText = firstName.getText().toString();
@@ -61,7 +61,7 @@ public class StartActivity extends AppCompatActivity {
                 alert.setNegativeButton("Refuser", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(StartActivity.this, "T'as bien raison, ce n'est pas une app pour les mauviettes !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StartActivity.this, "T'as bien raison, ce n'est pas une app pour les mauviettes !", Toast.LENGTH_LONG).show();
                     }
                 });
                 AlertDialog dialog = alert.create();
