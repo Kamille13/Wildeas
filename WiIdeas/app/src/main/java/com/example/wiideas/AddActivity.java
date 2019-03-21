@@ -46,6 +46,10 @@ public class AddActivity extends AppCompatActivity {
 
 
         final Button Add = findViewById(R.id.buttonAdd);
+        final Button Image = findViewById((R.id.buttonAdd2));
+
+
+        // Add an Idea
         Add.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -64,6 +68,20 @@ public class AddActivity extends AppCompatActivity {
                 startActivity(goMainActivity);
             }
         });
+
+
+        //Add an image
+        Image.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v){
+
+
+            }
+        });
+
+
+
     }
 
     @Override
