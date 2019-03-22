@@ -9,10 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class AboutUsActivity extends AppCompatActivity {
 
-
+    EditText mMessage;
+    EditText mSubject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +38,28 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(goMainActivity);
             }
         });
+
+        mMessage = findViewById(R.id.editTextComment);
+        mSubject = findViewById(R.id.editTextMail);
+
         final Button button = findViewById(R.id.buttonSend);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v){
 
+
                 String aEmailList[] = { "user@fakehost.com" };
-                String aEmailCCList[] = {findViewById(R.id.editTextComment).toString()};
+                String Comments = mMessage.getText().toString();
+                String Subjects = mSubject.getText().toString();
 
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT,Subjects);
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, aEmailCCList);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, Comments);
                 startActivity(emailIntent);
+                startActivity(Intent.createChooser(emailIntent, "Send Email"));
 
             }
         });

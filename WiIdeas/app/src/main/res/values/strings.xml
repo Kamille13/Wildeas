@@ -19,4 +19,5 @@
     <string name="about_us_title">About Us</string>
     <string name="idea_description_title">Idea Description</string>
     <string name="TextViewAboutUs">Nous sommes a votre disposition pour toutes vos demandes d\'informations </string>
+    <string name="Subject">Subject</string>
 </resources>
