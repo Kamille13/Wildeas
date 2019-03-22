@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Display Hello User
         TextView HelloUser = (TextView) findViewById(R.id.textViewHello);
-        HelloUser.setText("Hello " + userMaintActivity.getFirstname() + " " + userMaintActivity.getName() + " " +  "!");
+        HelloUser.setText("Bienvenue " + userMaintActivity.getFirstname() + " " + userMaintActivity.getName() + " " +  "!");
 
 
         final ListView listView = findViewById(R.id.listView);

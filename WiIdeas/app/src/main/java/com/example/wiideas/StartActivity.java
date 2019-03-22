@@ -76,7 +76,7 @@ public class StartActivity extends AppCompatActivity {
                 Uri uri = Uri.parse("android.resource://com.example.wiideas/drawable/enstein");
 
                 //Initialization of idea and user
-                Idea ideaStartActivity = new Idea("Tittle","Description",uri.toString());
+                Idea ideaStartActivity = new Idea("Titre","Description",uri.toString());
                 User userStarActivity = new User(firstNameText,lastNameText, ideaStartActivity);
 
                         Intent fromStartActivity = new Intent(StartActivity.this, MainActivity.class);
