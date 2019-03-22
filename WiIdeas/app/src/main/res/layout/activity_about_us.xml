@@ -59,7 +59,7 @@
         android:background="#CFCBCA"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="@string/Subject"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textSize="20dp"
         android:textStyle="bold"
