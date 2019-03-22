@@ -17,6 +17,6 @@
     <string name="lastName">Nom</string>
     <string name="add_activity_title">Ajouter une idée</string>
     <string name="about_us_title">A propos de nous</string>
-    <string name="idea_description_title">Idea Description</string>
-    <string name="TextViewAboutUs">Nous sommes une équipe de jeune codeur à votre disposition pour toutes vos demandes d\'informations </string>
+    <string name="idea_description_title">Votre idée</string>
+    <string name="TextViewAboutUs">Nous sommes une équipe de jeunes codeurs à votre disposition pour toutes vos demandes d\'informations </string>
 </resources>

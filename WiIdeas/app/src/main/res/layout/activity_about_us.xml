@@ -59,7 +59,7 @@
         android:background="#CFCBCA"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="Subject"
+        android:hint="Sujet"
         android:inputType="text"
         android:textSize="20dp"
         android:textStyle="bold"
