@@ -1,7 +1,6 @@
 package com.example.wiideas;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,8 +39,8 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
 
-        mMessage = findViewById(R.id.etMessage);
-        mSubject = findViewById(R.id.etSubject);
+        mMessage = findViewById(R.id.editTextComment);
+        mSubject = findViewById(R.id.editTextMail);
 
         final Button button = findViewById(R.id.buttonSend);
         button.setOnClickListener(new View.OnClickListener() {
@@ -49,16 +48,18 @@ public class AboutUsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                String aEmailList = ("user@fakehost.com");
-                String message = mMessage.getText().toString();
-                String subject = mSubject.getText().toString();
 
+                String aEmailList[] = { "user@fakehost.com" };
+                String Comments = mMessage.getText().toString();
+                String Subjects = mSubject.getText().toString();
 
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO,  Uri.parse("mailto:snx.dubois@gmail.com"));
-                //emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT,Subjects);
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, Comments);
                 startActivity(emailIntent);
+                startActivity(Intent.createChooser(emailIntent, "Send Email"));
 
             }
         });
